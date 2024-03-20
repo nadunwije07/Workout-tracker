@@ -1,24 +1,24 @@
 // Initilize express router
 const express = require('express') // Import express
+const {
+     createWorkout, 
+     getWorkout,
+     getWorkouts
+         } = require('../controllers/workoutController')
 const router = express.Router() // Create a router
 
 
 
+
 // Get all workouts
-router.get('/', (req, res) => {     
-    res.json({ message: 'GET All workouts'}) 
-})
+router.get('/', getWorkouts)
 
 
 // Get a specific workout
-router.get('/:id', (req, res) => {     
-    res.json({ message: 'GET a specific workout'}) 
-})
+router.get('/:id', getWorkout)
 
-// Post a specific workout
-router.post('/', (req, res) => {     
-    res.json({ message: 'Post a workout'}) 
-})
+// POST a new workout
+router.post('/', createWorkout )
 
 // Post a specific workout
 router.delete('/:id', (req, res) => {     
